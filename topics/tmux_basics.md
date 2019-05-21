@@ -26,7 +26,7 @@ To 'detach' or leave a session, you hold down the Control key and the 'b' keys a
 
 '''Ctrl-b  d'''
 
-Note that the Control and b key action is referred to as a 'prefix' or 'chord', depending the tmux guide. This action can be represented differently in different places. For example, on the link above, it is listed as "Ctrl + b  d. The prefix starts a lot of actions in tmux, but once you are used to it you will find it is easy. 
+Note that the Control and b key action is referred to as a 'prefix' or 'chord', depending on the tmux guide. This action can be represented differently in different places. For example, on the link above, it is listed as "Ctrl + b  d. The prefix starts a lot of actions in tmux, but once you are used to it you will find it is easy. 
 
 ## Go back to existing session
 
@@ -57,4 +57,15 @@ $ tmux ls
 ```
 
 Note naming your sessions will make it easier to know which you have. If you haven't named them, then they will be numbered. The names (or numbers) of sessions will be the first item when you list them
+
+## Deleting active sessions
+
+If you are finished with the job, and no longer need the session, then you can delete, or 'kill' it:
+
+```
+$ tmux kill-session -t name_of_session
+```
+
+If you do not specify a name of a session (no -t argument), then tmux will kill the last session made. 
+
 
