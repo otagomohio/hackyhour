@@ -18,5 +18,7 @@ Useful tips from past sessions will be added here.
 
 Transferring files to/from server
 
-Eager2 pipeline examples
+Eager2 ancient dna pipeline examples
+
+## Useful links
 
