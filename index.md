@@ -13,5 +13,5 @@ Useful tips from past sessions will be added here.
 
 ## Other Useful Topics
 
-[Getting started with tmux](topics/tmux_basics)
+[Getting started with tmux](topics/tmux_basics.md)
 
