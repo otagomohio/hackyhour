@@ -21,3 +21,40 @@ $ tmux new -s name_of_session
 ```
 
 ### Detach from a Session
+
+To 'detach' or leave a session, you hold down the Control key and the 'b' keys at the same time, release, then press the 'd' key:
+
+'''Ctrl-b  d'''
+
+Note that the Control and b key action is referred to as a 'prefix' or 'chord', depending the tmux guide. This action can be represented differently in different places. For example, on the link above, it is listed as "Ctrl + b  d. The prefix starts a lot of actions in tmux, but once you are used to it you will find it is easy. 
+
+## Go back to existing session
+
+If you have started a big job in tmux, and wish to re-enter it, or 'attach', it is:
+
+```
+$ tmux attach
+```
+
+or 
+
+```
+$ tmux a
+```
+
+This will go back to the last session. If you have named your session, you can specify this:
+
+```
+$ tmux a -t name_of_session
+```
+
+## Listing active sessions
+
+You can list all your tmux sessions, even if you haven't named them:
+
+```
+$ tmux ls
+```
+
+Note naming your sessions will make it easier to know which you have. If you haven't named them, then they will be numbered. The names (or numbers) of sessions will be the first item when you list them
+
