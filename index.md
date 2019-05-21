@@ -15,3 +15,4 @@ Useful tips from past sessions will be added here.
 
 [Getting started with tmux](topics/tmux_basics.md)
 
+Transferring files to/from server
