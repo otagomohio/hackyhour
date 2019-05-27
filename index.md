@@ -22,3 +22,5 @@ Eager2 ancient dna pipeline examples
 
 ## Useful links
 
+## [Example Commands](examples/index.md)
+
