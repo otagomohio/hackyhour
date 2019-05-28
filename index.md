@@ -5,7 +5,7 @@ This is a resource for getting help on data analysis. This site will serve as th
 <br/><br/>
 ## Next Session:
 
-29 May, 2019: *Visualising Alignments and Assemblies–from SAM files to SeqMonk*
+[29 May, 2019: *Visualising Alignments and Assemblies–from SAM files to SeqMonk*](sessions/2019_05_29.md)
 
 <br/><br/>
 ## Information from past sessions
