@@ -47,11 +47,44 @@ sortedBamFile.bam.bai
 
 If you add the -c argument then a .csi index (used for longer reference sequences) will be added instead. This option is good to use if you have very large chromosomes (~512 Mbp).
 
+<br/><br/>
+
+## samtools view
+
+The view command name is misleading; there are actually many things you can do with this command. The primary purpose is to extract reads that map to specific chromosomes. The default is to output to the terminal, but adding the linux redirect arrow ('>') puts it in a file. You have to add the -b argument to keep it in bam format (default output is sam). 
+
+```
+samtools view -b inputBamFile.bam Chromosome1 > outputBamChr1only.bam
+```
+
+Note that the Chromosome1 has to be the same name as in the header part of the file (e.g. SN:Chromosome1 LN:1000), which is the same as the sequence name in the genome or reference fasta file (e.g. >Chromosome1).
+
+Any sequence in the reference file can be used, as long as the names match. You can use the same command to reads mapping to multiple regions, just put a space between each name:
+
+```
+samtools view -b inputBamFile.bam contig1 contig2 contig3 > outputBamW3contigs.bam
+```
+
+I have used this command to extract reads mapping to several hundred contigs at once, and it is very fast. 
+
+Because you can specify the output format, this command is handy to convert your bam file to sam (so you can look at it).
+
+```
+samtools view -h inputBamFile.bam > outputSamFile.sam
+```
+
+The -h option will include the header component in the output sam file. If you do not include this, then just the read alignment information will be output. 
+
+You can also use the samtools view command to filter your bam file. The following command will filter out any unmapped reads:
+
+```
+samtools view -b -F4 inputBamFile.bam > outputFilteredBamFile.bam
+```
 
 
 
 
 
-
+<br/><br/>
 
 
