@@ -5,12 +5,13 @@ This is a resource for getting help on data analysis. This site will serve as th
 <br/><br/>
 ## Next Session:
 
-[29 May, 2019: *Visualising Alignments and Assemblies–from SAM files to SeqMonk*](sessions/2019_05_29.md)
+19 June 2019: ["How do I figure out how many resources I need for my job?"](https://github.com/otagomohio/hackyhour/blob/master/sessions/presentations/profiling.pdf)
 
 <br/><br/>
 ## Information from past sessions
 
-Useful tips from past sessions will be added here. 
+[29 May, 2019: *Visualising Alignments and Assemblies–from SAM files to SeqMonk*](sessions/2019_05_29.md)
+
 <br/><br/>
 ## Other Useful Topics
 
