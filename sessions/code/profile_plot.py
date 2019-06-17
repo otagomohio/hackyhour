@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# Written by: Dinindu Senanayake, https://www.nesi.org.nz/news/2018/12/new-additions-nesi-team
 """Plot data from a SLURM HDF5 profile file generated with sh5util"""
 
 from __future__ import division, print_function
