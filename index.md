@@ -25,3 +25,5 @@ Eager2 ancient dna pipeline examples
 
 ## [Example Commands](examples/index.md)
 
+***
+[Jump back to main Otago Mohio page](https://otagomohio.github.io/)
