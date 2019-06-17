@@ -7,12 +7,10 @@ This is a resource for getting help on data analysis. This site will serve as th
 
 19 June 2019: ["How do I figure out how many resources I need for my job?"](https://github.com/otagomohio/hackyhour/blob/master/sessions/presentations/profiling.pdf)
 
-<br/><br/>
 ## Information from past sessions
 
 [29 May, 2019: *Visualising Alignments and Assemblies–from SAM files to SeqMonk*](sessions/2019_05_29.md)
 
-<br/><br/>
 ## Other Useful Topics
 
 [Getting started with tmux](topics/tmux_basics.md)
@@ -23,7 +21,7 @@ Eager2 ancient dna pipeline examples
 
 ## Useful links
 
-## [Example Commands](examples/index.md)
+* [Example Commands](examples/index.md)
 
 ***
 [Jump back to main Otago Mohio page](https://otagomohio.github.io/)
