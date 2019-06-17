@@ -30,4 +30,4 @@ Eager2 ancient dna pipeline examples
 ***
   
   
-[Jump back to main Otago Mohio page](https://otagomohio.github.io/)
+[*Jump back to main Otago Mohio page*](https://otagomohio.github.io/)
