@@ -5,7 +5,8 @@ This is a resource for getting help on data analysis. This site will serve as th
 
 ***
 ## Next Session:
-*Starting again in second semester, date TBD*
+
+14 August, 2019: *What went wrong? How to spot your mistakes and fix them*
 
 ***
 ## Information from past sessions
