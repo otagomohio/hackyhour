@@ -6,7 +6,7 @@ This is a resource for getting help on data analysis. This site will serve as th
 ***
 ## Next Session:
 
-14 August, 2019: *What went wrong? How to spot your mistakes and fix them*
+14 August, 2019: [*What went wrong? How to spot your mistakes and fix them*](sessions/2019_08_14.md)
 
 ***
 ## Information from past sessions
