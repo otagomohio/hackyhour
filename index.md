@@ -20,9 +20,11 @@ This is a resource for getting help on data analysis. This site will serve as th
 ***
 ## Other Useful Topics
 
-[Getting started with tmux](topics/tmux_basics.md)
+[**Logging in to boros server**](topics/Logging_in_to_boros.md)
 
-Transferring files to/from server
+[**Getting started with tmux**](topics/tmux_basics.md)
+
+[**Transferring files to/from server**](sessions/2019_08_28.md)
 
 Eager2 ancient dna pipeline examples
 
