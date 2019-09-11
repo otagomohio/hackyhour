@@ -25,7 +25,7 @@ Here's the results of that:
 Thu 12 Sep 2019 11:13:42 NZST
 Thu 12 Sep 2019 11:14:11 NZST
 ```
-Our original loop took 30 s. Our file we've created, array_test.txt looks like this:
+Our original loop took 29 s. Our file we've created, array_test.txt looks like this:
 ```
 1
 2
