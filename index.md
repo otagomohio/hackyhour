@@ -6,10 +6,12 @@ This is a resource for getting help on data analysis. This site will serve as th
 ***
 ## Next Session:
 
-28 August, 2019: [*Finding Your Path: moving files, folders, and programs around the computer and to the server*](sessions/2019_08_28.md)
+11 September, 2019: [**Getting started writing scripts**](sessions/2019_09_11.md)
 
 ***
 ## Information from past sessions
+
+28 August, 2019: [*Finding Your Path: moving files, folders, and programs around the computer and to the server*](sessions/2019_08_28.md)
 
 14 August, 2019: [*What went wrong? How to spot your mistakes and fix them*](sessions/2019_08_14.md)
 
