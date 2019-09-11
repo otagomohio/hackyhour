@@ -78,12 +78,95 @@ Here's a version of that you can copy and paste:
 ```
 rm array_test.txt; date; for i in "${array[@]}";    do thing_we_want_to_do $i; done; date
 ```
-OK, so that took 17s. It was a wee bit quicker than our original loop, because we'd already saved the `seq 0 100 100000` as an array, so the computer didn't have to do this part as well as the add 1...99 and take away 1...99.
+OK, so that took 27s. It was a wee bit quicker than our original loop, because we'd already saved the `seq 0 100 100000` as an array, so the computer didn't have to do this part as well as the add 1...99 and take away 1...99.
 ```
 Thu 12 Sep 2019 11:30:10 NZST
 Thu 12 Sep 2019 11:30:37 NZST
 ```
-However, this isn't parallelizing it. But the next step will!
+However, this isn't parallelizing it. Our array_test.txt file has still been written in sequential order:
+```
+1
+2
+3
+...
+100002
+100001
+100000
+```
+This is because our loop has run one after the other using one thread. However the next step we do will parallelize this whole thing!
 
 ### Second stop in parallelizing: for reals, here we go!
+Are you ready for this? To parallelize the code it is one small sneaky change: we just replace the semicolon # before done with an '&'
+```
+rm array_test.txt
+date
+for i in "${array[@]}"; 
+  do thing_we_want_to_do $i & done
+date
+```
+Here's a version you can copy and paste:
+```
+rm array_test.txt; date; for i in "${array[@]}";    do thing_we_want_to_do $i & done; date
+```
+
+7s! Phew, much faster! My machine has 4 cores, so by going parallel it has allowed us about a 4x speed up
+```
+Thu 12 Sep 2019 11:41:23 NZST
+Thu 12 Sep 2019 11:41:30 NZST
+```
+
+Apart from the speed, there is another way we can tell that we've got multiple threads going at the same time. If we look at the contents of array_test.txt this time, you'll see something like this:
+```
+201
+202
+401
+...
+96902
+96901
+96900
+```
+All the values are there, but they are not in order, because they correspond to different "i" array input values (e.g. 200, 400, 96000). This is because the code is running in PARALLEL (which is also why it was speedier: 7 s vs 27 s,  because many different array values were being run at the same time. This obvioulsy isn't a good idea if you want output that completes in a sequential order (but there are ways of getting around this e.g. writing out separate log files and then combining and sorting them at the end), but it can be a great idea if you've got a bunch of independent tasks you want done on similar things (e.g trimming adaptor off sequencing reads on a bunch of different files etc etc).
+
+The one thing you need to be careful about is that this parallel loop will take up all the processes available to it. We can limit it using another way of achieving parallelization: xargs. 
+
+### Playing nice and not stealing all the cores: using xargs for parallelization
+To use xargs we 'll need to tweak our function slightly so that it knows it is taking its arguments from the command line (the i=$1 bit)
+```
+thing_we_want_to_do() {
+    i=$1;
+    for j in `seq 1 99`;
+      do (( i = i + 1 ));
+      echo $i >> array_test.txt;
+    done;
+    for j in `seq 1 99`;
+      do (( i = i - 1 ));
+      echo $i >> array_test.txt;
+    done;
+}
+```
+Version you can copy and paste:
+```
+thing_we_want_to_do() { i=$1; for j in `seq 1 99`; do (( i = i + 1 )); echo $i >> array_test.txt; done;  for j in `seq 1 99`; do (( i = i - 1 ));  echo $i >> array_test.txt; done; }
+```
+We then need to export our thing_we_want_to_do function to the current shell so that xargs will be able to see it.
+```
+export -f thing_we_want_to_do
+```
+We'll also remove the version of array_test.txt we have from last time:
+```
+rm array_test.txt
+```
+OK, so xargs. Xargs would rather take our arguments one at a time than as an array, so we are going to take the original seq statement we used to make our array and feed it directly to xargs (if you were processing a bunch of files or something similar, you could feed it the `ls` command you used to identify those files). Other things going on here: 
+* -n 1 means take the arguments one at a time 
+* -P 1 means use just one processor (so this should be about the speed of our original one by one for loop). 
+* -I starting_i means, take the value that has just been fed to xargs and call it 'starting_i'. The starting_i in the bash -c 'thing_we_want_to_do starting_i' string is then substituted with the actual number value read in from the seq 0 100 100000 statement. Then our little function then takes that number and calls it $i for its calcualtions (adding 1 through 99, taking away 1 through 99)
+```
+date
+seq 0 100 100000 | xargs -n 1 -P 1 -I starting_i bash -c 'thing_we_want_to_do starting_i'
+date
+```
+Here's a version you can copy and paste:
+```
+date; seq 0 100 100000 | xargs -n 1 -P 1 -I starting_i bash -c 'thing_we_want_to_do starting_i'; date
+```
 
