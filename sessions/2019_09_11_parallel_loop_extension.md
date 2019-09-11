@@ -50,10 +50,10 @@ echo "${array[@]}"
 Cool, OK. So the next thing we need to do is to define our "task". This is part of the for loop in the original example above, but when working with an array we need to pull it out of the for loop and turn it into a function. Let's call this function, 'thing_we_want_to_do':
 ```
 thing_we_want_to_do() {
-		for j in `seq 1 99`;
-		  do (( i = i + 1 ));
-		  echo $i >> array_test.txt;
-		done
+    for j in `seq 1 99`;
+      do (( i = i + 1 ));
+      echo $i >> array_test.txt;
+    done;
     for j in `seq 1 99`;
       do (( i = i - 1 ));
       echo $i >> array_test.txt;
