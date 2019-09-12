@@ -170,3 +170,47 @@ Here's a version you can copy and paste:
 date; seq 0 100 100000 | xargs -n 1 -P 1 -I starting_i bash -c 'thing_we_want_to_do starting_i'; date
 ```
 
+As expected, with one processor is slower than using all four cpus. This took 37 s which is also a little slower than even our original loop! The overhead for managing the threads through xargs likely makes it a little slower than just a normal for loop in this case.
+```
+Thu 12 Sep 2019 11:54:17 NZST
+Thu 12 Sep 2019 11:54:53 NZST
+```
+The output (array_test.txt) is also sequential because it is just one processor ticking through. 
+```
+1
+2
+3
+...
+100002
+100001
+100000
+```
+
+Let's remove that (rm array_test.txt) and try again with 4 processors (the max on my machine):
+```
+rm array_test.txt
+date
+seq 0 100 100000 | xargs -n 1 -P 4 -I starting_i bash -c 'thing_we_want_to_do starting_i'
+date
+```
+Here's a version you can copy and paste:
+```
+rm array_test.txt; date; seq 0 100 100000 | xargs -n 1 -P 4 -I starting_i bash -c 'thing_we_want_to_do starting_i'; date
+```
+
+18 seconds - speedier, but not as speedy as doing the original parallel loop using the array. Again, this is likely due to the overhead for managing threads but if you were in a situation where it would be a party foul to steal all the cpus (say, on a shared machine for example), then xargs would be your friend!
+```
+Thu 12 Sep 2019 12:03:41 NZST
+Thu 12 Sep 2019 12:03:59 NZST
+```
+As for our original parallel array, the output captured in array_test.txt is not sequential:
+```
+101
+1
+102
+...
+100002
+100001
+100000
+```
+However, if instead of writing to a single file, we were trimming sequencing reads and writing them out to separate files, you could see how parallel processing could be really speedy and useful!
