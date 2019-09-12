@@ -96,7 +96,7 @@ However, this isn't parallelizing it. Our array_test.txt file has still been wri
 This is because our loop has run one after the other using one thread. However the next step we do will parallelize this whole thing!
 
 ### Second stop in parallelizing: for reals, here we go!
-Are you ready for this? To parallelize the code it is one small sneaky change: we just replace the semicolon # before done with an '&'
+Are you ready for this? To parallelize the code it is one small sneaky change: we just replace the semicolon before done with an '&'
 ```
 rm array_test.txt
 date
