@@ -127,7 +127,7 @@ Apart from the speed, there is another way we can tell that we've got multiple t
 ```
 All the values are there, but they are not in order, because they correspond to different "i" array input values (e.g. 200, 400, 96000). This is because the code is running in PARALLEL (which is also why it was speedier: 7 s vs 27 s,  because many different array values were being run at the same time. This obvioulsy isn't a good idea if you want output that completes in a sequential order (but there are ways of getting around this e.g. writing out separate log files and then combining and sorting them at the end), but it can be a great idea if you've got a bunch of independent tasks you want done on similar things (e.g trimming adaptor off sequencing reads on a bunch of different files etc etc).
 
-The one thing you need to be careful about is that this parallel loop will take up all the processes available to it. We can limit it using another way of achieving parallelization: xargs. 
+The one thing you need to be careful about is that this parallel loop will take up all the CPUs available to it. We can limit it using another way of achieving parallelization: xargs. 
 
 ### Playing nice and not stealing all the cores: using xargs for parallelization
 To use xargs we 'll need to tweak our function slightly so that it knows it is taking its arguments from the command line (the i=$1 bit)
