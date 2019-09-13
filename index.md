@@ -6,7 +6,7 @@ This is a resource for getting help on data analysis. This site will serve as th
 ***
 ## Next Session:
 
-11 September, 2019: [**Getting started writing scripts**](sessions/2019_09_11.md)
+11 September, 2019: [*Getting started writing scripts*](sessions/2019_09_11.md)
 
 ***
 ## Information from past sessions
@@ -27,6 +27,8 @@ This is a resource for getting help on data analysis. This site will serve as th
 [**Getting started with tmux**](topics/tmux_basics.md)
 
 [**Transferring files to/from server**](sessions/2019_08_28.md)
+
+[**Parallelizing for loops**](sessions/2019_09_11_parallel_loop_extension.md)
 
 Eager2 ancient dna pipeline examples
 
