@@ -71,23 +71,26 @@ Here's a version you can just paste into the command line:
 ```
 thing_we_want_to_do() { for j in `seq 1 99`; do (( i = i + 1 )); echo $i >> array_test.txt; done;  for j in `seq 1 99`; do (( i = i - 1 ));  echo $i >> array_test.txt; done; }
 ```
-Let's try the function by running it:
-
+Let's try the function by running it. First we are going to remove array_test.txt:
 ```
 rm array_test.txt
+```
+Now we are going to run the function, but we need to give it a value to run on. Let's make i 1000: 
+```
+i=1000
 thing_we_want_to_do
 ```
-
 You should see a new file array_test.txt:
 ```
-100001
-100002
-100003
+1001
+1002
+1003
 ...
-100002
-100001
-100000
+1002
+1001
+1000
 ```
+This time array_test.txt only has "counts up from that number to 99+that number, and then counts down again to the original number" for 1000. This is because we haven't fed it a bunch of different `i` values, so it has just used the `$i` value of 1000 that we defined before calling the function.
 
 Now we are going to combine our array, and our function. To match our function 'thing_we_want_to_do' above, we are going to use the $i variable to represent the various values in our array. In this first example we are going to run a 'normal', non-parallelized loop. To see how long it  takes we are going to run the 'date' command before and after. However, before we run it, we need to remove the array_test.txt from our simple for loop above or we will just keep expanding that old file!
 ```
