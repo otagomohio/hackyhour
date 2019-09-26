@@ -1,6 +1,6 @@
 # Parallelizing for loops
 
-Hopefully, [after the last hacky hour in for loops](https://github.com/otagomohio/hackyhour/blob/master/sessions/2019_09_11.md) you now see that for loops are super useful and can save you a lot of time! To illustrate this, let's start off with a simple loop:
+Hopefully, [after the last hacky hour on for loops](https://github.com/otagomohio/hackyhour/blob/master/sessions/2019_09_11.md) you now see that for loops are super useful and can save you a lot of time! To illustrate this, let's start off with a simple loop:
 ```
 for i in `seq 0 100 100000`;
 do echo $i
