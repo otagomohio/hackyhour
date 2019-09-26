@@ -23,7 +23,7 @@ for i in `seq 0 100 100000`; # These are the numbers from 0 to 100,000 that we w
 done;  
 
 ```
-To look at the speeds ups we get from parallelizing, we first need to know how long this loop takes. We are going to figure this out by running the `date` command before and after this loop to see how long it takes. Here's a version you can copy and paste that has the `date` command on each end (with comments removed, and using ';' instead of breaking the loop across lines:
+To look at the speeds ups we get from parallelizing, we first need to know how long this loop takes. We are going to figure this out by running the `date` command before and after this loop to see how long it takes. Here's a version you can copy and paste that has the `date` command on each end (with comments removed, and using ';' instead of breaking the loop across lines):
 ```
 date; for i in `seq 0 100 100000`;   do for j in `seq 1 99`;     do (( i = i + 1 ));     echo $i >> array_test.txt;   done;   for j in `seq 1 99`;     do (( i = i - 1 ));     echo $i >> array_test.txt;   done; done; date
 ```
