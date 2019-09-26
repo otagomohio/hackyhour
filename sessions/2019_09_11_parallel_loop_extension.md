@@ -79,17 +79,14 @@ thing_we_want_to_do
 ```
 
 You should see a new file array_test.txt:
-
 ```
-1
-2
-3
+100001
+100002
+100003
 ...
-96
-97
-98
-99
-...
+100002
+100001
+100000
 ```
 
 Now we are going to combine our array, and our function. To match our function 'thing_we_want_to_do' above, we are going to use the $i variable to represent the various values in our array. In this first example we are going to run a 'normal', non-parallelized loop. To see how long it  takes we are going to run the 'date' command before and after. However, before we run it, we need to remove the array_test.txt from our simple for loop above or we will just keep expanding that old file!
