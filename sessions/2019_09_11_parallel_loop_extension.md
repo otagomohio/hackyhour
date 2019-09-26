@@ -1,6 +1,18 @@
 # Parallelizing for loops
 
-Hopefully, you now see that for loops are super useful and can save you a lot of time! However, the loops we've been working with go through each item in the "list of things we are going to do stuff to" one at a time. One way to get a speed up is to do the stuff to all of the "list of things we are going to stuff to" all at once, i.e. making our loop run on "the things" in parallel.  
+
+Let's recall ourselves a simple loop:
+
+```
+for i in `seq 0 100 100000`;
+do echo $i
+done
+```
+This print i for every number in a sequence of 0 to 100000 by 100.
+This shows how good computers are at repeating things. You now see that for loops are super useful and can save you a lot of time!  but can we make them do things in parralel rather than one after the other?
+
+The loop above go through each item in the "list of things we are going to do stuff to" one at a time. One way to get a speed up is to do the stuff to all of the "list of things we are going to stuff to" all at once, i.e. making our loop run on "the things" in parallel.  
+
 
 ### Our wee little loop we will parallelize
 To demonstrate this, I've got an example for loop below. This loop takes every 100th number from 0 to 100,000, it then counts up from that number to 99+that number, and then counts down again to the original number. It shoots all these numbers into a file called array_test.txt.
@@ -15,6 +27,7 @@ for i in `seq 0 100 100000`; # These are the numbers from 0 to 100,000 that we w
     echo $i >> array_test.txt; # And writing these new values of $i out to a file called array_test.txt
   done;
 done;  
+
 ```
 To look at the speeds ups we get from parallelizing, we first need to know how long this loop takes. We are going to figure this out by running the `date` command before and after this loop to see how long it takes. Here's a version you can copy and paste that has the `date` command on each end (with comments removed, and using ';' instead of breaking the loop across lines:
 ```
@@ -64,8 +77,28 @@ Here's a version you can just paste into the command line:
 ```
 thing_we_want_to_do() { for j in `seq 1 99`; do (( i = i + 1 )); echo $i >> array_test.txt; done;  for j in `seq 1 99`; do (( i = i - 1 ));  echo $i >> array_test.txt; done; }
 ```
+Let's try the function by running it:
 
-Now we are going to combine our array, and our function. To match our function 'thing_we_want_to_do' above, we are going to use the $i variable to represent the various values in our array. In this first example we are going to run a 'normal', non-parallelized loop. To see how long it  takes we are going to run the 'date' command before and after. However, before we run it, we need to remove the array_test.txt from our simple for loop above!
+```
+rm array_test.txt
+thing_we_want_to_do
+```
+
+You should see a new file array_test.txt:
+
+```
+1
+2
+3
+...
+96
+97
+98
+99
+...
+```
+
+Now we are going to combine our array, and our function. To match our function 'thing_we_want_to_do' above, we are going to use the $i variable to represent the various values in our array. In this first example we are going to run a 'normal', non-parallelized loop. To see how long it  takes we are going to run the 'date' command before and after. However, before we run it, we need to remove the array_test.txt from our simple for loop above or we will just keep expanding that old file!
 ```
 rm array_test.txt
 date
@@ -96,7 +129,8 @@ However, this isn't parallelizing it. Our array_test.txt file has still been wri
 This is because our loop has run one after the other using one thread. However the next step we do will parallelize this whole thing!
 
 ### Second stop in parallelizing: for reals, here we go!
-Are you ready for this? To parallelize the code it is one small sneaky change: we just replace the semicolon before done with an '&'
+Are you ready for this? To parallelize the code it is one small sneaky change: we just replace the semicolon before done with an '&'. Instead of waiting for each $i to be done, it just starts it and then starts the next one without waiting for it to be done.
+
 ```
 rm array_test.txt
 date
@@ -148,6 +182,13 @@ Version you can copy and paste:
 ```
 thing_we_want_to_do() { i=$1; for j in `seq 1 99`; do (( i = i + 1 )); echo $i >> array_test.txt; done;  for j in `seq 1 99`; do (( i = i - 1 ));  echo $i >> array_test.txt; done; }
 ```
+Let's try the function buy running it from 100:
+
+```
+rm array_test.txt
+thing_we_want_to_do
+```
+
 We then need to export our thing_we_want_to_do function to the current shell so that xargs will be able to see it.
 ```
 export -f thing_we_want_to_do
