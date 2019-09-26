@@ -176,12 +176,22 @@ Version you can copy and paste:
 ```
 thing_we_want_to_do() { i=$1; for j in `seq 1 99`; do (( i = i + 1 )); echo $i >> array_test.txt; done;  for j in `seq 1 99`; do (( i = i - 1 ));  echo $i >> array_test.txt; done; }
 ```
-Let's try the function buy running it from 100:
+Let's try the function by running it from 100:
 ```
 rm array_test.txt
 thing_we_want_to_do 100
+less array_test.txt
 ```
-
+If our function is all good we should get:
+```
+101
+102
+103
+...
+102
+101
+100
+```
 We then need to export our thing_we_want_to_do function to the current shell so that xargs will be able to see it.
 ```
 export -f thing_we_want_to_do
@@ -203,7 +213,6 @@ Here's a version you can copy and paste:
 ```
 date; seq 0 100 100000 | xargs -n 1 -P 1 -I starting_i bash -c 'thing_we_want_to_do starting_i'; date
 ```
-
 As expected, with one processor is slower than using all four cpus. This took 37 s which is also a little slower than even our original loop! The overhead for managing the threads through xargs likely makes it a little slower than just a normal for loop in this case.
 ```
 Thu 12 Sep 2019 11:54:17 NZST
@@ -231,7 +240,6 @@ Here's a version you can copy and paste:
 ```
 rm array_test.txt; date; seq 0 100 100000 | xargs -n 1 -P 4 -I starting_i bash -c 'thing_we_want_to_do starting_i'; date
 ```
-
 18 seconds - speedier, but not as speedy as doing the original parallel loop using the array. Again, this is likely due to the overhead for managing threads but if you were in a situation where it would be a party foul to steal all the cpus (say, on a shared machine for example), then xargs would be your friend!
 ```
 Thu 12 Sep 2019 12:03:41 NZST
