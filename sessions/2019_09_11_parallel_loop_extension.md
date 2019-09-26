@@ -1,18 +1,12 @@
 # Parallelizing for loops
 
-
-Let's recall ourselves a simple loop:
-
+Hopefully, [after the last hacky hour in for loops](https://github.com/otagomohio/hackyhour/blob/master/sessions/2019_09_11.md) you now see that for loops are super useful and can save you a lot of time! To illustrate this, let's start off with a simple loop:
 ```
 for i in `seq 0 100 100000`;
 do echo $i
 done
 ```
-This print i for every number in a sequence of 0 to 100000 by 100.
-This shows how good computers are at repeating things. You now see that for loops are super useful and can save you a lot of time!  but can we make them do things in parralel rather than one after the other?
-
-The loop above go through each item in the "list of things we are going to do stuff to" one at a time. One way to get a speed up is to do the stuff to all of the "list of things we are going to stuff to" all at once, i.e. making our loop run on "the things" in parallel.  
-
+Each time this loop runs through it takes a new number going from 0 to 100000 by every 100th number (the `seq 0 100 100000` part), and then echoes this number out (the `echo $i` part). This shows how good computers are at repeating things. However, the loop above goes through each item in the "list of things we are going to do stuff to" one at a time. One way to get a speed up is to do the stuff to all of the "list of things we are going to stuff to" all at once, i.e. making our loop run on "the things" in parallel.  
 
 ### Our wee little loop we will parallelize
 To demonstrate this, I've got an example for loop below. This loop takes every 100th number from 0 to 100,000, it then counts up from that number to 99+that number, and then counts down again to the original number. It shoots all these numbers into a file called array_test.txt.
