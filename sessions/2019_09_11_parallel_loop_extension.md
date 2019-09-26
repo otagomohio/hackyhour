@@ -177,10 +177,9 @@ Version you can copy and paste:
 thing_we_want_to_do() { i=$1; for j in `seq 1 99`; do (( i = i + 1 )); echo $i >> array_test.txt; done;  for j in `seq 1 99`; do (( i = i - 1 ));  echo $i >> array_test.txt; done; }
 ```
 Let's try the function buy running it from 100:
-
 ```
 rm array_test.txt
-thing_we_want_to_do
+thing_we_want_to_do 100
 ```
 
 We then need to export our thing_we_want_to_do function to the current shell so that xargs will be able to see it.
