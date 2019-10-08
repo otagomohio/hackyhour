@@ -6,7 +6,7 @@ This is a resource for getting help on data analysis. This site will serve as th
 ***
 ## Next Session:
 
-
+9 October, 2019: [*How to work with others on the server*](sessions/2019_10_09.md)
 
 ***
 ## Information from past sessions
