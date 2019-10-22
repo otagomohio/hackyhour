@@ -6,18 +6,18 @@ This is a resource for getting help on data analysis. This site will serve as th
 ***
 ## Next Session:
 
-9 October, 2019: [*How to work with others on the server*](sessions/2019_10_09.md)
+23 October, 2019: [*Express yourself!: Using regular expressions*](sessions/2019_10_23.md)
 
 ***
 ## Information from past sessions
+
+9 October, 2019: [*How to work with others on the server*](sessions/2019_10_09.md)
 
 25 September, 2019: [*I want it faster! Using arrays in bash*](sessions/2019_09_11_parallel_loop_extension.md)
 
 Also: [*Jargon Buster*](http://polleverywhere.com/)
 
 11 September, 2019: [*Getting started writing scripts*](sessions/2019_09_11.md)
-
-28 August, 2019: [*Finding Your Path: moving files, folders, and programs around the computer and to the server*](sessions/2019_08_28.md)
 
 [*All previous sessions*](sessions/session_index.md)
 
