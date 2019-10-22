@@ -2,7 +2,7 @@
 
 23 October, 2019: [*Express yourself!: Using regular expressions*](2019_10_23.md)
 
-10 October, 2019: 
+9 October, 2019: [*How to work with others on the server*](2019_10_09.md)
 
 25 September, 2019: [*I want it faster! Using arrays in bash*](https://otagomohio.github.io/hackyhour/sessions/2019_09_11_parallel_loop_extension.html)
 
