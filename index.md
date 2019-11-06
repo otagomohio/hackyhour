@@ -6,10 +6,12 @@ This is a resource for getting help on data analysis. This site will serve as th
 ***
 ## Next Session:
 
-23 October, 2019: [*Express yourself!: Using regular expressions*](sessions/2019_10_23.md)
+6 November, 2019: [**Using Markdown in Github Pages**](sessions/2019_11_06.md)
 
 ***
 ## Information from past sessions
+
+23 October, 2019: [*Express yourself!: Using regular expressions*](sessions/2019_10_23.md)
 
 9 October, 2019: [*How to work with others on the server*](sessions/2019_10_09.md)
 
