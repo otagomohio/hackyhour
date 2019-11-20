@@ -2,7 +2,7 @@
 
 20 November, 2019: [*Help us help you*](2019_11_20.md)
 
-
+6 November, 2019: [*Using Markdown in Github Pages*](2019_11_06.md)
 
 23 October, 2019: [*Express yourself!: Using regular expressions*](2019_10_23.md)
 
