@@ -1,5 +1,9 @@
 # Links to all previous session material
 
+20 November, 2019: [*Help us help you*](2019_11_20.md)
+
+
+
 23 October, 2019: [*Express yourself!: Using regular expressions*](2019_10_23.md)
 
 9 October, 2019: [*How to work with others on the server*](2019_10_09.md)
