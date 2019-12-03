@@ -6,10 +6,12 @@ This is a resource for getting help on data analysis. This site will serve as th
 ***
 ## Next Session:
 
-20 November, 2019: [*Help us help you*](sessions/2019_11_20.md)
+4 December, 2019: [*What's going on*](sessions/2019_12_04.md)
 
 ***
 ## Information from past sessions
+
+20 November, 2019: [*Help us help you*](sessions/2019_11_20.md)
 
 6 November, 2019: [*Using Markdown in Github Pages*](sessions/2019_11_06.md)
 
@@ -17,11 +19,7 @@ This is a resource for getting help on data analysis. This site will serve as th
 
 9 October, 2019: [*How to work with others on the server*](sessions/2019_10_09.md)
 
-25 September, 2019: [*I want it faster! Using arrays in bash*](sessions/2019_09_11_parallel_loop_extension.md)
-
 Also: [*Jargon Buster*](http://polleverywhere.com/)
-
-11 September, 2019: [*Getting started writing scripts*](sessions/2019_09_11.md)
 
 [*All previous sessions*](sessions/session_index.md)
 
