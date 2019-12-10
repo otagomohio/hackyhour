@@ -6,10 +6,12 @@ This is a resource for getting help on data analysis. This site will serve as th
 ***
 ## Next Session:
 
-4 December, 2019: [*What's going on*](sessions/2019_12_04.md)
+
 
 ***
 ## Information from past sessions
+
+4 December, 2019: [*What's going on*](sessions/2019_12_04.md)
 
 20 November, 2019: [*Help us help you*](sessions/2019_11_20.md)
 
