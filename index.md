@@ -36,7 +36,7 @@ Also: [*Jargon Buster*](http://polleverywhere.com/)
 
 [**Parallelizing for loops**](sessions/2019_09_11_parallel_loop_extension.md)
 
-Eager2 ancient dna pipeline examples
+[**Eager2 ancient dna pipeline examples**](topics/eager2_guide.md)
 
 ***
 ## Useful links
